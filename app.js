@@ -41,7 +41,8 @@ require([
 require([
   "esri/config",
   "esri/WebMap",
-  "esri/views/MapView"
+  "esri/views/MapView",
+  "esri/widgets/Legend",
   // "esri/identity/OAuthInfo",
   // "esri/identity/IdentityManager"
 ], function(esriConfig, WebMap, MapView) {
@@ -57,6 +58,16 @@ require([
   const view = new MapView({
     container: "viewDiv",
     map: webmap
+  });
+
+  view.when(function() {
+    // Create the Legend without specifying layerInfos
+    var legend = new Legend({
+      view: view
+    });
+
+    // Add the legend to the bottom right corner of the view
+    view.ui.add(legend, "bottom-right");
   });
 
 });
