@@ -1,3 +1,4 @@
+/*
 require([
   "esri/config",
   "esri/WebMap",
@@ -6,10 +7,10 @@ require([
   "esri/identity/IdentityManager"
 ], function(esriConfig, WebMap, MapView, OAuthInfo, esriId) {
 
-  esriConfig.apiKey = "AAPK80a780885f4f481a89f82b83bce95a05mqojZ_fFWglSjUCDjuWKI23B5MKDU1lVv0dp9uf5-I-owKTQBtYD4haE-mvnbcpF";
+  esriConfig.apiKey = "AAPKbf70a5e7fff643aba4086899bea30df3C74r6D4ccA7QYb9fEd340y95U0Px-hJW9N7gkH3sMf5MuKGKAn27wvOnuJc9QV71";
 
   var info = new OAuthInfo({
-    appId: "rwAuMzSzP8rsldzy",
+    appId: "lgmq6kIt5EthgVBO",
     popup: true // Use a popup for the OAuth dialog
   });
   esriId.registerOAuthInfos([info]);
@@ -25,7 +26,7 @@ require([
   function loadMap() {
     const webmap = new WebMap({
       portalItem: {
-        id: "a0cfe3407db94cdcb49d8fde98c87ff8"
+        id: "6446eddb7c284d63a72073626e0a8312"
       }
     });
 
@@ -34,4 +35,28 @@ require([
       map: webmap
     });
   }
+});
+*/
+
+require([
+  "esri/config",
+  "esri/WebMap",
+  "esri/views/MapView"
+  // "esri/identity/OAuthInfo",
+  // "esri/identity/IdentityManager"
+], function(esriConfig, WebMap, MapView) {
+
+  esriConfig.apiKey = "AAPKbf70a5e7fff643aba4086899bea30df3C74r6D4ccA7QYb9fEd340y95U0Px-hJW9N7gkH3sMf5MuKGKAn27wvOnuJc9QV71";
+
+  const webmap = new WebMap({
+    portalItem: {
+      id: "6446eddb7c284d63a72073626e0a8312" // ID of the web map
+    }
+  });
+
+  const view = new MapView({
+    container: "viewDiv",
+    map: webmap
+  });
+
 });
