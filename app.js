@@ -6,9 +6,7 @@ require([
   "esri/widgets/Editor",
   "esri/identity/OAuthInfo",
   "esri/identity/IdentityManager",
-  "esri/portal/Portal",
-  "esri/portal/PortalQueryParams"
-], function(esriConfig, WebMap, MapView, Legend, Editor, OAuthInfo, esriId, Portal, PortalQueryParams) {
+], function(esriConfig, WebMap, MapView, Legend, Editor, OAuthInfo, esriId) {
 
   esriConfig.apiKey = "AAPKbf70a5e7fff643aba4086899bea30df3C74r6D4ccA7QYb9fEd340y95U0Px-hJW9N7gkH3sMf5MuKGKAn27wvOnuJc9QV71";
 
