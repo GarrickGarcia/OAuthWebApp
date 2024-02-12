@@ -1,18 +1,28 @@
 html, body {
   padding: 0;
   margin: 0;
-  height: 98%;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-  height: 4%;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 0; /* Provides some spacing around the text */
+  text-align: center;
 }
 
 #viewDiv {
-  height: 96%; /* Adjusted to account for the header */
+  flex: 1; /* Takes up the remaining space */
   width: 100%;
   box-sizing: border-box;
+}
+
+calcite-card {
+  border: 2px solid gray;
+  border-radius: 5px;
+  height: 300px;
+  width: 250px;
 }
