@@ -16,7 +16,7 @@ require([
   const info = new OAuthInfo({
     appId: "lgmq6kIt5EthgVBO", // Replace with your actual App ID
     authNamespace: "portal_oauth_inline",
-    popup: true // Use true to have OAuth login in a separate popup
+    popup: False // Use true to have OAuth login in a separate popup
   });
 
   // Register the OAuthInfo with the IdentityManager.
