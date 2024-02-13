@@ -16,8 +16,8 @@ require([
 
   //Create a new OAuthInfo object.
   const info = new OAuthInfo({
-    appId: "lgmq6kIt5EthgVBO", // Replace with your actual App ID
-    popup: true, // Use true to have OAuth login in a separate popup
+    appId: "lgmq6kIt5EthgVBO", 
+    popup: true,
   });
 
   // Register the OAuthInfo with the IdentityManager.
@@ -52,9 +52,19 @@ require([
   function signInOrOut() {
     esriId
       .checkSignInStatus(info.portalUrl + "/sharing")
-      .then(esriId.destroyCredentials)
+      .then(() => {
+        // If the user is already signed in, sign them out
+        esriId.destroyCredentials();
+        signInButton.hidden = false;
+        navigationUser.hidden = true;
+      })
       .catch(() => {
-        esriId.getCredential(info.portalUrl + "/sharing").then(checkSignIn);
+        // If the user is not signed in, sign them in
+        esriId.getCredential(info.portalUrl + "/sharing").then(() => {
+          signInButton.hidden = true;
+          navigationUser.hidden = false;
+          checkSignIn();
+        });
       });
   }
 
