@@ -52,19 +52,9 @@ require([
   function signInOrOut() {
     esriId
       .checkSignInStatus(info.portalUrl + "/sharing")
-      .then(() => {
-        // If the user is already signed in, sign them out
-        esriId.destroyCredentials();
-        signInButton.hidden = false;
-        navigationUser.hidden = true;
-      })
+      .then(esriId.destroyCredentials)
       .catch(() => {
-        // If the user is not signed in, sign them in
-        esriId.getCredential(info.portalUrl + "/sharing").then(() => {
-          signInButton.hidden = true;
-          navigationUser.hidden = false;
-          checkSignIn();
-        });
+        esriId.getCredential(info.portalUrl + "/sharing").then(checkSignIn);
       });
   }
 
